@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import counterReducer from "./modules/counter"
+import recommenReducer from "@/views/discover/child-views/recommend/store/recommend"
 import {
   useSelector,
   useDispatch,
@@ -9,7 +10,8 @@ import {
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    recommend: recommenReducer
   }
 })
 
@@ -22,5 +24,6 @@ type DispatchType = typeof store.dispatch
 export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
 export const useAppDispatch: () => DispatchType = useDispatch
 export const AppShallowEqual = shallowEqual
+// shallowEqual::在组件决定是否被渲染之前,会进行一次浅层对比如果该组件依赖的state并没有被更改,就不会进行渲染(性能优化)
 
 export default store
