@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import counterReducer from "./modules/counter"
 import recommenReducer from "@/views/discover/child-views/recommend/store/recommend"
+import playerReducer from "@/views/player/store/player"
 import {
   useSelector,
   useDispatch,
@@ -11,7 +12,8 @@ import {
 const store = configureStore({
   reducer: {
     counter: counterReducer,
-    recommend: recommenReducer
+    recommend: recommenReducer,
+    player: playerReducer
   }
 })
 
